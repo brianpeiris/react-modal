@@ -61,7 +61,7 @@ class SimpleUsage extends Component {
         <button type="button" className="btn btn-primary" onClick={this.toggleModal(MODAL_B)}>Open Modal B</button>
         <MyModal
           title={this.state.title1}
-          isOpen={currentModal == MODAL_A}
+          isOpen={true}
           onAfterOpen={this.handleOnAfterOpenModal}
           onRequestClose={this.handleModalCloseRequest}
           askToClose={this.toggleModal(MODAL_A)}

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom';
 import Modal from 'react-modal';
 import SimpleUsage from './simple_usage';
 import MultipleModals from './multiple_modals';
@@ -22,19 +22,21 @@ const examples = [
 class App extends Component {
   render() {
     return (
-      <div>
-        {examples.map((example, key) => {
-          const ExampleApp = example.app;
-          return (
-            <div key={key + 1} className="example">
-              <h3>{`#${key + 1}. ${example.label}`}</h3>
-              <ExampleApp />
-            </div>
-          );
-        })}
-      </div>
+      <React.StrictMode>
+        <div>
+          {examples.map((example, key) => {
+            const ExampleApp = example.app;
+            return (
+              <div key={key + 1} className="example">
+                <h3>{`#${key + 1}. ${example.label}`}</h3>
+                <ExampleApp />
+              </div>
+            );
+          })}
+        </div>
+      </React.StrictMode>
     );
   }
 }
 
-ReactDOM.render(<App />, appElement);
+createRoot(appElement).render(<App />);
